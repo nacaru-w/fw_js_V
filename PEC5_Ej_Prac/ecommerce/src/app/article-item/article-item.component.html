@@ -1,0 +1,14 @@
+<div class="item" [class]="article.isOnSale? 'on-sale' : ''" [ngClass]="articleClasses">
+    <h2 class="name">{{ article.name }}</h2>
+    <div class="image-container">
+        <img [src]="article.imageUrl" alt="" class="image">
+    </div>
+    <p>Precio actual: <span class="price-tag">{{ article.price }}</span> €</p>
+    <p class="sold">¡<span *ngIf="!article.isOnSale">no </span>disponible<span *ngIf="!article.isOnSale">
+            actualmente</span>!</p>
+    <div class="cart-info" *ngIf="article.isOnSale">
+        <p>En carrito: <span class="quantity"> {{ article.quantityInCart }} </span></p>
+        <button class="remove" (click)="removeFromCart()" [disabled]="disableButton()">Quitar</button>
+        <button class="add" (click)="addtoCart()">Añadir</button>
+    </div>
+</div>

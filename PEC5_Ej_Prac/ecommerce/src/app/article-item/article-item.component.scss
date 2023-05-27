@@ -1,0 +1,47 @@
+div.item {
+    padding-block: 2em;
+    width: 20em;
+    border: 1px solid rgb(109, 177, 172);
+    border-radius: 10px;
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+
+    .image-container {
+        width: 30%;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    button {
+        font-weight: bold;
+        font-family: 'Open Sans', sans-serif;
+        padding: 0.5em;
+        margin: 0.5em;
+        border: 1px solid rgb(109, 177, 172);
+        border-radius: 4px;
+        background-color: rgb(123, 197, 192);
+    }
+
+    button:disabled {
+        opacity: 50%;
+    }
+
+    .price-tag,
+    .quantity {
+        font-weight: bold;
+    }
+
+}
+
+.on-sale {
+    background-color: rgb(195, 241, 228);
+}
+
+.not-on-sale {
+    background-color: lightgray;
+}
