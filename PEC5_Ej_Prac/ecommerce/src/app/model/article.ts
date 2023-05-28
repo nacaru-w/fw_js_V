@@ -5,6 +5,4 @@ export interface Article {
     price: number;
     isOnSale: boolean;
     quantityInCart: number;
-    showComponent?: boolean;
-
 }

@@ -1,3 +1,50 @@
-<div *ngIf="!hideFormTemplate">
-    <p>article-new-template works!</p>
+<div *ngIf="!hideFormTemplate" class="form-container">
+    <h3>
+        Crear producto
+    </h3>
+
+    <div>
+        <div *ngIf="showAlertMessage" class="alert alert-danger" role="alert">
+            El formulario contiene errores. Vuelve a intentarlo de nuevo.
+        </div>
+    </div>
+
+    <form (ngSubmit)="createArticle(articleForm)" #articleForm="ngForm">
+        <div ngModelGroup="article">
+            <div class="form-group">
+                <label for="articleName">Nombre del producto</label>
+                <input type="text" ngModel #articleName="ngModel" name="name" placeholder="Nombre del producto"
+                    required />
+            </div>
+            <div class="error" *ngIf="(articleName.dirty  || showAlertMessage) && articleName.invalid">
+                Se require el nombre del producto
+            </div>
+            <div class="form-group">
+                <label for="articlePrice">Precio del producto</label>
+                <input type="number" ngModel name="price" placeholder="Precio del producto" #articlePrice="ngModel"
+                    required>
+            </div>
+            <div class="error" *ngIf="(articlePrice.dirty || showAlertMessage) && articlePrice.invalid">
+                Se requiere el precio del producto
+            </div>
+            <div class="form-group">
+                <label for="productImageUrl">URL de la imagen del producto</label>
+                <input type="text" ngModel name="imageUrl" placeholder="URL de la imagen del producto"
+                    #productImageUrl="ngModel" pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$" required>
+            </div>
+            <div class="error" *ngIf="(productImageUrl.dirty || showAlertMessage) && productImageUrl.invalid">
+                <div *ngIf="productImageUrl.errors?.['required']">
+                    Se requiere la imagen del producto
+                </div>
+                <div *ngIf="productImageUrl.errors?.['pattern']">
+                    La URL de imagen proporcionada no es válida
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" ngModel name="isOnSale">
+                Disponible
+            </div>
+        </div>
+        <div class="button-container"><button type="submit">Create</button></div>
+    </form>
 </div>
