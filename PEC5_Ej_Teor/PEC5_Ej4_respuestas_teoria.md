@@ -18,6 +18,26 @@ import { FormControl } from '@angular/forms';
 
 __b. Busca en la página oficial de Angular (o utiliza un recurso de O’Reilly) en el que se especifiquen todos los validadores que incluye Angular para ser utilizados en los formularios reactivos. Construye una tabla de resumen de estos.__
 
-
+| Validador       | Descripción                                                                                                                                     | Uso                                                                                  |
+|---------------------------|------------------------------------------------|-----------------------------------------------------------------------|
+| min()           | Requiere que el número control del campo sea mayor o igual al proporcionado                                                                     | `static min(min: number): ValidatorFn`                                               |
+| max()           | Requiere que el número control del campo sea menor o igual al proporcionado                                                                     | `static max(max :number): ValidatorFn`                                               |
+| required()      | Requiere que el campo posea un valor no vacío                                                                                                   | `static required(control: AbstractControl<any, any>): ValidationErrores | null`     |
+| requiredTrue()  | Requiere que el valor del campo sea `true`, como en el caso de las _checkboxes_                                                                 | `static requiredTrue(control: AbstractControl<any, any>): ValidationErrors | null`  |
+| email()         | Requiere que el valor del campo pase un test de validación de email                                                                             | `static email(control: AbstractControl<any, any>): ValidationErrors | null`         |
+| minLength()     | Requiere que el valor del campo contenga un número de caracteres mayor o igual al especificado. Puede usarse tanto en `number` como en `string` | `static minLength(minLength: number): ValidatorFn`                                   |
+| maxLength()     | Requiere que el valor del campo contenga un número de caracteres menor o igual al especificado. Puede usarse con `number` o `string`            | `static minlength(maxLength: number): ValidatorFn`                                   |
+| pattern()       | Comprueba si el valor del campo pasa un patrón de expresión regular                                                                             | `static pattern(pattern: string\| RegExp): ValidatorFn`                              |
+| nullValidator() | No realiza ninguna validación                                                                                                                   | `static nullValidator(control: AbstractControl<any, any>): ValidationErrors | null` |
+| compose()       | Compone varios validadores en una sola función que devuelve la unión del mapeo de errores                                                       | `static compose(validators: ValidatorFn[]): ValidatorFn | null`                     |
+| composeAsync()  | Realiza una función similar a la anterior pero de forma asíncrona                                                                               | `static composeAsync(validators: AsyncValidatorFn[]): AsyncValidatorFn | null`      |
 
 __c. ¿Qué son, cuáles son y para qué sirven los estados en los formularios reactivos?__
+
+Los estados de control nos permiten saber cuándo y cómo el usuario ha interactuado con el formulario, y realizar acciones en función a ello. Existen los siguientes:
+
+* `pristine`: se considera como tal cuando no se ha realizado ningún tipo de interacción por parte del usuario. Todos los campos del formulario se encuentran en este estado al principio, y solo cambian una vez el usuario ha introducido un valor o ha hecho _focus_ en el campo.
+
+* `dirty`: Un campo se considera así cuando el usuario interactúa con él, cambiando su valor. Esto puede darse cuando el usuario introduce un valor en un campo en el que se puede añadir texto o cuando elige una opción de un menú desplegable, por ejemplo. En términos amplios, indica, que el campo ha sido modificado.
+
+* `touched`: se considera así cuando el usuario ha realizado `focus` en el campo, y ha pasado a otra cosa. Por ejemplo, si este hace clic en un campo `input` y luego hace clic fuera del mismo, se considera que ha sido `touched`. Se usa a menudo para decidir si colocar mensajes de validación.
