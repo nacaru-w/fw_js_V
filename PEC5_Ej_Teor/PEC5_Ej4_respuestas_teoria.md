@@ -34,10 +34,10 @@ __b. Busca en la página oficial de Angular (o utiliza un recurso de O’Reilly)
 
 __c. ¿Qué son, cuáles son y para qué sirven los estados en los formularios reactivos?__
 
-Los estados de control nos permiten saber cuándo y cómo el usuario ha interactuado con el formulario, y realizar acciones en función a ello. Existen los siguientes:
+Los estados de control nos permiten saber cuándo y cómo el usuario ha interactuado con el formulario, y realizar acciones en función a ello. Son similares a los utilizados en los formularios basados en plantilla. Existen los siguientes:
 
 * `pristine`: se considera como tal cuando no se ha realizado ningún tipo de interacción por parte del usuario. Todos los campos del formulario se encuentran en este estado al principio, y solo cambian una vez el usuario ha introducido un valor o ha hecho _focus_ en el campo.
 
 * `dirty`: Un campo se considera así cuando el usuario interactúa con él, cambiando su valor. Esto puede darse cuando el usuario introduce un valor en un campo en el que se puede añadir texto o cuando elige una opción de un menú desplegable, por ejemplo. En términos amplios, indica, que el campo ha sido modificado.
 
-* `touched`: se considera así cuando el usuario ha realizado `focus` en el campo, y ha pasado a otra cosa. Por ejemplo, si este hace clic en un campo `input` y luego hace clic fuera del mismo, se considera que ha sido `touched`. Se usa a menudo para decidir si colocar mensajes de validación.
+* `touched`: se considera así cuando el usuario ha realizado `focus` en el campo, y ha pasado a otra cosa. Por ejemplo, si este hace clic en un campo `input` y luego hace clic fuera del mismo, se considera que ha sido `touched`. Se usa a menudo para decidir si colocar mensajes relativos a la validación o no.
