@@ -21,7 +21,7 @@ Se refiere a los estados en los que se puede hallar la _form control_. Son los s
 * _Pristine_: se considera así cuando aún no se ha interactuado con ella, al no haberse sometido a ningún tipo de modificación de su valores. A este tipo se le aplica la clase CSS `ng-pristine`.
 * _Dirty_: es el estado que se le aplica cuando el usuario ha interactuado con ella y ha realizado cambios a su _form control_. Se le aplica la clase CSS `ng-dirty`.
 * _Touched_: se califica así cuando el usuario ha hecho _focus_ en el control y luego lo ha quitado. Indica que ha habido una interactuación con el control sin modificación de los valores. A este se le aplica la clase CSS `ng-touched`.
-* _Untouched_:  
+* _Untouched_: cuando no se ha dado ningún tipo de interacción.
 
 __d. ¿Qué ventajas aportan los FormGroup en la composición de formularios?__
 
