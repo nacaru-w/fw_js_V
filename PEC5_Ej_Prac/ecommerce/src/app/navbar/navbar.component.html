@@ -8,15 +8,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a (click)="showArticleList(); hideTemplateForm()" class="nav-link active" aria-current="page"
-                        href="#">Inicio</a>
+                    <a (click)="showArticleList(); hideTemplateForm(); hideReactiveForm();" class="nav-link active"
+                        aria-current="page" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="hideArticleList(); showTemplateForm()" class="nav-link" href="#">Nuevo artículo
+                    <a (click)="hideArticleList(); showTemplateForm(); hideReactiveForm();" class="nav-link"
+                        href="#">Nuevo artículo
                         template</a>
                 </li>
                 <li class="nav-item">
-                    <a (click)="hideArticleList(); hideTemplateForm()" class="nav-link" href="#">Nuevo artículo
+                    <a (click)="hideArticleList(); hideTemplateForm(); showReactiveForm();" class="nav-link"
+                        href="#">Nuevo artículo
                         reactivo</a>
                 </li>
             </ul>

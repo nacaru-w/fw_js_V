@@ -26,4 +26,12 @@ export class NavbarComponent {
     this.componentCommunicationService.triggerTemplateFormShow();
   }
 
+  hideReactiveForm(): void {
+    this.componentCommunicationService.triggerReactiveFormHide();
+  }
+
+  showReactiveForm(): void {
+    this.componentCommunicationService.triggerReactiveFormShow();
+  }
+
 }
