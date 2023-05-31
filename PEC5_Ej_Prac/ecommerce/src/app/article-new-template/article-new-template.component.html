@@ -30,7 +30,9 @@
             <div class="form-group">
                 <label for="productImageUrl">URL de la imagen del producto</label>
                 <input type="text" ngModel name="imageUrl" placeholder="URL de la imagen del producto"
-                    #productImageUrl="ngModel" pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$" required>
+                    #productImageUrl="ngModel"
+                    pattern="^[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&//=]*)$"
+                    required>
             </div>
             <div class="error" *ngIf="(productImageUrl.dirty || showAlertMessage) && productImageUrl.invalid">
                 <div *ngIf="productImageUrl.errors?.['required']">

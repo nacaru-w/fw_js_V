@@ -28,6 +28,7 @@ export class ArticleNewTemplateComponent implements OnInit {
 
     } else {
       const article: Article = articleForm.value.article;
+      console.log(article);
     }
   }
 
