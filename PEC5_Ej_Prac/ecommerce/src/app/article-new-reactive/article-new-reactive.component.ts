@@ -1,4 +1,5 @@
 import { Article } from "../model/article";
+import { NameArticleValidator } from "./custom-validator";
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ComponentCommunicationService } from '../component-communication.service';
@@ -22,7 +23,7 @@ export class ArticleNewReactiveComponent implements OnInit {
 
   createForm() {
     this.articleForm = this.fb.group({
-      name: [null, Validators.required],
+      name: [null, Validators.required, [NameArticleValidator]],
       price: [null, [Validators.required, Validators.min(0.1)]],
       imageUrl: [null, [Validators.required, Validators.pattern("^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$")]],
       isOnSale: [null]
@@ -58,6 +59,6 @@ export class ArticleNewReactiveComponent implements OnInit {
       const article: Article = this.articleForm.value.article;
     }
 
-    console.log('Stock Form Value', this.articleForm.value);
+    console.log(this.articleForm.value);
   }
 }

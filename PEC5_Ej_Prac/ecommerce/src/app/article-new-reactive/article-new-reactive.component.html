@@ -16,7 +16,12 @@
                 <input type="text" name="name" placeholder="Nombre del producto" formControlName="name" required>
             </div>
             <div class="error" *ngIf="(name!.dirty || showAlertMessage) && name!.invalid">
-                Se require el nombre del producto
+                <div *ngIf="name!.errors?.['errorName']">
+                    El nombre elegido no es correcto
+                </div>
+                <div *ngIf="name!.errors?.['required']">
+                    Se require el nombre del producto
+                </div>
             </div>
             <div class="article-price" class="form-group">
                 <label for="price">Precio del producto</label>
