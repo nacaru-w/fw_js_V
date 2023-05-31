@@ -25,7 +25,7 @@ export class ArticleNewReactiveComponent implements OnInit {
     this.articleForm = this.fb.group({
       name: [null, Validators.required, [NameArticleValidator]],
       price: [null, [Validators.required, Validators.min(0.1)]],
-      imageUrl: [null, [Validators.required, Validators.pattern("^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$")]],
+      imageUrl: [null, [Validators.required, Validators.pattern("^[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$")]],
       isOnSale: [null]
     })
   }
