@@ -23,7 +23,12 @@
                 <input type="number" name="price" placeholder="Precio del producto" formControlName="price" required>
             </div>
             <div class="error" *ngIf="(price!.dirty || showAlertMessage) && price!.invalid">
-                Se requiere el precio del producto
+                <div *ngIf="price!.errors?.['required']">
+                    Se requiere el precio del producto
+                </div>
+                <div *ngIf="price!.errors?.['min']">
+                    El precio debe de ser mayor a 0.1
+                </div>
             </div>
             <div class="article-imageUrl" class="form-group">
                 <label for="imageUrl">URL de la imagen del producto</label>
