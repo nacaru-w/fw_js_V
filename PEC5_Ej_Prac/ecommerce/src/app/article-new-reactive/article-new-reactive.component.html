@@ -1,3 +1,48 @@
-<div *ngIf="!hideForm">
-    <p>article-new-reactive works!</p>
+<div *ngIf="!hideForm" class="form-container">
+    <h3>
+        Crear producto
+    </h3>
+
+    <div>
+        <div *ngIf="showAlertMessage" class="alert alert-danger" role="alert">
+            El formulario contiene errores. Vuelve a intentarlo de nuevo.
+        </div>
+    </div>
+
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+        <div>
+            <div class="article-name" class="form-group">
+                <label for="name">Nombre del producto</label>
+                <input type="text" name="name" placeholder="Nombre del producto" formControlName="name" required>
+            </div>
+            <div class="error" *ngIf="(name!.dirty || showAlertMessage) && name!.invalid">
+                Se require el nombre del producto
+            </div>
+            <div class="article-price" class="form-group">
+                <label for="price">Precio del producto</label>
+                <input type="number" name="price" placeholder="Precio del producto" formControlName="price" required>
+            </div>
+            <div class="error" *ngIf="(price!.dirty || showAlertMessage) && price!.invalid">
+                Se requiere el precio del producto
+            </div>
+            <div class="article-imageUrl" class="form-group">
+                <label for="imageUrl">URL de la imagen del producto</label>
+                <input type="text" name="imageUrl" placeholder="URL de la imagen del producto"
+                    formControlName="imageUrl" required>
+            </div>
+            <div class="error" *ngIf="(imageUrl!.dirty || showAlertMessage) && imageUrl!.invalid">
+                <div *ngIf="imageUrl!.errors?.['required']">
+                    Se requiere la imagen del producto
+                </div>
+                <div *ngIf="imageUrl!.errors?.['pattern']">
+                    La URL de imagen proporcionada no es válida
+                </div>
+            </div>
+            <div class="article-isOnSale" class="form-group">
+                <input type="checkbox" name="isOnSale" formControlName="isOnSale">
+                Marcar como disponible
+            </div>
+        </div>
+        <div class="button-container"><button type="submit" (click)="onSubmit()">Create</button></div>
+    </form>
 </div>
