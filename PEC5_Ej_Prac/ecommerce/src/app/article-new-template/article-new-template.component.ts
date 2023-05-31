@@ -10,7 +10,7 @@ import { Article } from '../model/article';
 export class ArticleNewTemplateComponent implements OnInit {
   public article: Article;
   public hideFormTemplate: boolean = true;
-  public showAlertMessage = false;
+  public showAlertMessage: boolean = false;
 
   constructor(private componentCommunicationService: ComponentCommunicationService) { }
 
